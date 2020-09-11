@@ -15,9 +15,11 @@ function GradeTable(props) {
   return (
     <table className="table table-striped table-dark">
       <thead>
-        <th>Student Name</th>
-        <th>Course</th>
-        <th>Grade</th>
+        <tr>
+          <th>Student Name</th>
+          <th>Course</th>
+          <th>Grade</th>
+        </tr>
       </thead>
       <tbody>{
         props.grades.map(grade => {
