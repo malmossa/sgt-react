@@ -18,16 +18,25 @@ class App extends React.Component {
 
   averageGrade() {
     let totalGrades = 0;
-    for (let i = 0; i < this.state.grades.length; i++) {
-      totalGrades += this.state.grades[i].grade;
+    if (this.state.grades.length === 0) {
+      return 0;
+    } else {
+      for (let i = 0; i < this.state.grades.length; i++) {
+        totalGrades += this.state.grades[i].grade;
+      }
+      const average = totalGrades / this.state.grades.length;
+      return average;
     }
-    const average = totalGrades / this.state.grades.length;
-    return average;
   }
 
   render() {
-    if (this.state.grades === []) {
-      return <h3>No grades Recorded</h3>;
+    if (this.state.grades.length === 0) {
+      return (
+        <div className="container-fluid">
+          <Header />
+          <h3>No grades Recorded</h3>;
+        </div>
+      );
     } else {
       return (
         <div className="container-fluid">
